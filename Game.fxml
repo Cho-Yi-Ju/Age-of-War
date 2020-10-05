@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Game">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <Pane prefHeight="129.0" prefWidth="1280.0">
+         <children>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackPressed" prefHeight="50.0" prefWidth="54.0" text="Back" textAlignment="CENTER" />
+            <Button layoutX="1206.0" layoutY="14.0" mnemonicParsing="false" onAction="#next_century" prefHeight="50.0" prefWidth="54.0" text="Next" textAlignment="CENTER" />
+            <Label layoutX="181.0" layoutY="14.0" prefHeight="15.0" prefWidth="32.0" text="Coin:" />
+            <Label layoutX="181.0" layoutY="32.0" prefHeight="15.0" prefWidth="25.0" text="Exp:" />
+            <Label fx:id="coin" layoutX="222.0" layoutY="14.0" prefHeight="15.0" prefWidth="89.0" text="200" textAlignment="CENTER" />
+            <Label fx:id="exp" layoutX="222.0" layoutY="33.0" prefHeight="15.0" prefWidth="89.0" text="0" textAlignment="CENTER" />
+            <Button layoutX="96.0" layoutY="14.0" mnemonicParsing="false" onAction="#set_Enemy1" prefHeight="50.0" prefWidth="54.0" text="Enemy" visible="false" />
+            <Label layoutX="659.0" layoutY="7.0" text="Army_1" textAlignment="CENTER" />
+            <Label layoutX="659.0" layoutY="33.0" text="Army_2" textAlignment="CENTER" />
+            <Label layoutX="659.0" layoutY="59.0" text="Army_3" textAlignment="CENTER" />
+            <Label fx:id="Ar_coin_1" layoutX="733.0" layoutY="7.0" prefHeight="15.0" prefWidth="89.0" text="\$15" />
+            <Button layoutX="1099.0" layoutY="14.0" mnemonicParsing="false" onAction="#set_Army3" prefHeight="50.0" prefWidth="79.0" text="Army_3" textAlignment="CENTER" />
+            <Label fx:id="Ar_coin_2" layoutX="733.0" layoutY="33.0" prefHeight="15.0" prefWidth="89.0" text="\$25" />
+            <Label fx:id="Ar_coin_3" layoutX="733.0" layoutY="59.0" prefHeight="15.0" prefWidth="89.0" text="\$100" />
+            <Button layoutX="995.0" layoutY="14.0" mnemonicParsing="false" onAction="#set_Army2" prefHeight="50.0" prefWidth="79.0" text="Army_2" textAlignment="CENTER" />
+            <Button layoutX="888.0" layoutY="14.0" mnemonicParsing="false" onAction="#set_Army1" prefHeight="50.0" prefWidth="79.0" text="Army_1" textAlignment="CENTER" />
+         </children>
+      </Pane>
+      <ScrollPane vmax="0.0">
+         <content>
+            <Pane fx:id="field" prefHeight="670.0" prefWidth="2000.0">
+               <children>
+                  <ImageView fitHeight="681.0" fitWidth="2014.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@game_scene.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="castle1" fitHeight="300.0" fitWidth="300.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@castle1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="castle2" fitHeight="300.0" fitWidth="300.0" layoutX="1700.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@encastle1.png" />
+                     </image>
+                  </ImageView>
+                  <ProgressBar fx:id="army_hp" layoutX="315.0" layoutY="482.0" prefHeight="15.0" prefWidth="42.0" progress="1.0" visible="false" />
+                  <ImageView fx:id="army" fitHeight="52.0" fitWidth="91.0" layoutX="300.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@1-1A.png" />
+                     </image>
+                  </ImageView>
+                  <ProgressBar fx:id="enemy_hp" layoutX="1641.0" layoutY="482.0" prefHeight="15.0" prefWidth="42.0" progress="1.0" visible="false" />
+                  <ImageView fx:id="enemy" fitHeight="52.0" fitWidth="91.0" layoutX="1609.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@1-1E.png" />
+                     </image>
+                  </ImageView>
+                  <ProgressBar fx:id="my_hp" layoutX="-123.0" layoutY="172.0" prefHeight="26.0" prefWidth="300.0" progress="1.0" rotate="-90.0" />
+                  <ProgressBar fx:id="en_hp" layoutX="1823.0" layoutY="172.0" prefHeight="26.0" prefWidth="300.0" progress="1.0" rotate="-90.0" />
+               </children>
+            </Pane>
+         </content>
+      </ScrollPane>
+      <Pane prefHeight="122.0" prefWidth="1280.0">
+         <children>
+            <ProgressBar fx:id="progress" layoutX="14.0" layoutY="42.0" prefHeight="18.0" prefWidth="555.0" progress="0.0" />
+            <Button layoutX="1187.0" layoutY="4.0" mnemonicParsing="false" onAction="#pause_btn" prefHeight="56.0" prefWidth="79.0" text="Pause">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
+            <GridPane layoutX="30.0" layoutY="6.0" prefHeight="26.0" prefWidth="308.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Pane fx:id="buffer1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" />
+                  <Pane fx:id="buffer2" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="2" />
+                  <Pane fx:id="buffer3" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="4" />
+                  <Pane fx:id="buffer4" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="6" />
+                  <Pane fx:id="buffer5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="8" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+  </children>
+</VBox>
